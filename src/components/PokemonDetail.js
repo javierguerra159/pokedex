@@ -7,6 +7,7 @@ import image from '../image/image11.png';
 const PokemonDetail = () => {
 
     const [pokemon, setPokemon] = useState([])
+    const [colorCard, setColorCard] = useState({})
     const { id } = useParams()
 
     useEffect(() => {
@@ -14,7 +15,13 @@ const PokemonDetail = () => {
             .then(res => setPokemon(res.data))
     }, [id])
 
-   
+    useEffect(() => {
+        if (pokemon.species !== undefined) {
+
+            axios.get(pokemon.species?.url)
+                .then(res => setColorCard(res.data))
+        }
+    }, [pokemon])
 
     return (
         <div className='container-pincipal'>
@@ -26,7 +33,13 @@ const PokemonDetail = () => {
 
             </div >
             <div className='detail'>
-                <div className='container-color'></div>
+                <div className='container-color'
+                    style={{
+                        background: colorCard.color?.name
+                    }}
+                >
+
+                </div>
 
                 <h1>#<b>{id}</b></h1>
                 <h1>{pokemon?.name}</h1>
@@ -46,9 +59,11 @@ const PokemonDetail = () => {
                 <div className='container-ability'>
 
                     <div>
-                        <h2 className='description'>tipo</h2>
+                        <h2 className='description'>
+                            tipo
+                        </h2>
                         <div className='t-a'>
-                            <b className='p-information'> {pokemon.types?.[0]?.type.name}</b> <b className='p-information'>{pokemon.types?.[1]?.type.name}</b>
+                            <b className='p-information' style={{ background: colorCard.color?.name }}> {pokemon.types?.[0]?.type.name}</b> <b className='p-information' style={{ background: colorCard.color?.name }}>{pokemon.types?.[1]?.type.name}</b>
 
                         </div>
                     </div>
@@ -62,12 +77,14 @@ const PokemonDetail = () => {
                 </div>
                 <div className='card-stats ' >
                     <h1 className='container-stats'>stats</h1>
-                    <hr />
+                    <hr /> 
                     <ul className='ul-list'>
                         <li className='list-stats'>
 
+
                             <p className='p-stats'>HP</p>
                             <b className='b-stats'>{pokemon.stats?.[0].base_stat}</b>
+
 
                         </li>
                         <li className='list-stats'>

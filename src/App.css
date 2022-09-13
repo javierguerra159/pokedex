@@ -62,7 +62,7 @@
 .card-list{
     width: 207px;
     height: 350px;
-    background-color: rgb(103, 96, 96);
+    background-color: rgb(229, 226, 226);
     margin: 10px;
     padding: 10px;
     text-align: center;
@@ -132,7 +132,7 @@
 
 .card-vacia{
     height: 120px;
-    background-color: #D93F3F;
+   
     margin-bottom: 0;
 }
 .name{
@@ -140,7 +140,7 @@
    padding-top: 30px;
 }
 .container-description{
-    background-color: #ccc;
+    background-color: #fbf7f7;
     position: absolute;
     width: 207px;
     height: 230px;
