@@ -27,7 +27,7 @@ const PokemonDetail = () => {
         <div className='container-pincipal'>
             <div className="red"></div>
             <div className="black"></div>
-            <img className='image-pokedex' src={image} />
+            <img className='image-pokedex' src={image} alt="pokedext"/>
             <div className='container-detail'>
                 <img src={pokemon.sprites?.other.dream_world.front_default} alt="imagen" className='image-detail' />
 

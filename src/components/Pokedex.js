@@ -53,7 +53,7 @@ const Pokedex = () => {
         <div className="cabezera">
             <div className="red"></div>
             <div className="black"></div>
-            <img className='image-pokedex' src={image} />
+            <img className='image-pokedex' src={image} alt="pokedex"/>
             <div className='container-pokemon'>
 
 
